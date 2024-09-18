@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    #div1, #div2, #div3 {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        border: 1px solid #aaaa;
+    }
+</style>
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
+    <title>Drag 'n drop | arraste e solte </title>
+</head>
+<body>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <br>
+    <img id="drag1" src="../img/lupi-skin.png" draggable="true" ondragstart="drag(event)" width="100px" alt="Este é o Lupi">
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    
+</body>
+</html>
